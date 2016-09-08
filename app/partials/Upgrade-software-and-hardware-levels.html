@@ -1,0 +1,31 @@
+<div class="container">
+    <h3> {{ title }} </h3>
+    <p>
+        <ai>
+            COBOL V5 and V6 have minimum levels of subsystem and other software required.
+            <br/>
+            <br/> Are all your software and hardware up to the prerequisite levels as defined in the <a href="{{doclinks['UpgradeSwHwLevels']}}" target="_blank">Enterprise COBOL Licensed Program Specifications</a>?
+        </ai>
+    </p>
+    <input type="radio" ng-model="response" value="no"> No
+    <br />
+    <input type="radio" ng-model="response" value="yes" data-ng-click="stepCompleted('SW/HW levels are up to date','yes')"> Yes
+    <br />
+    <br />
+    <div ng-show="response == 'no'" class="ng-hide">
+        <p>All software and hardware must be updated to the prerequistite levels.
+            <br/>
+            <br/>
+            <ai>Have you updated all software and hardware requirements to the prerequisite levels specified?</ai>
+        </p>
+        <div>
+            <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Completed','yes')">
+                Done
+            </button>
+            <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Not Needed','no')" disabled>
+                Not needed
+            </button>
+        </div>
+
+    </div>
+</div>

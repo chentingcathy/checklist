@@ -1,0 +1,37 @@
+<div class="container" data-ng-controller="migrationTargetController">
+    <h3> {{ title }} </h3>
+    <p>
+        <a href="{{doclinks['modifyCompilerOptions']}}" target="_blank">Set the default compiler options</a> in {{migrationTarget}} to be compatible with previous COBOL compilers. This involves copying IGYCDOPT source from SIGYSAMP, setting the options, and then assembling the modified IGYCDOPT.
+        <br/>
+        <br/>
+        <ai>The most important options to set the same as previous compilers are:</ai>
+    </p>
+    <ul>
+        <li>ADV</li>
+        <li>AWO</li>
+        <li>DYNAM</li>
+        <li>NUMPROC (other than changing from NUMPROC(MIG))</li>
+        <li>TRUNC</li>
+    </ul>
+    <p>
+        <ai> You should also: </ai>
+    </p>
+    <ol>
+        <li>Setup your source library control system compiler options for the new compiler to be compatible with the old compiler(s).</li>
+        <li>
+            Document all customizations and setups performed for future reference.
+        </li>
+    </ol>
+    <p>
+        <ai> Note: </ai>
+    </p>
+    <ul>
+        <li>
+            Do NOT combine COBOL compiler migrations with other migrations. In particular, do not try to switch from the DB2 precompiler or the separate CICS translator to using the SQL or CICS compiler options (integrated coprocessors) at the same time as your COBOL compiler migration.
+        </li>
+        <li>
+            Do NOT migrate z/OS, DB2 or CICS at the same time as a COBOL compiler migration. COBOL migration is a significant migration on its own!
+        </li>
+    </ul>
+    <div ng-include="'/app/partials/buttons.html'"></div>
+</div>

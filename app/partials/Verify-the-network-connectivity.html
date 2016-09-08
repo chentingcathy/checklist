@@ -1,0 +1,21 @@
+<div class="container">
+    <h3> {{ title }} </h3>
+    <p>
+     <ai>
+       You can save time by verifying or acquiring and recording the following information.
+        </ai>
+       <br/>
+    </p>
+    <form name="networken" data-ng-controller="networkController">
+        
+        <div data-ng-repeat="(key, docStr) in checkList">
+            <input type="checkbox" ng-model="response[key]">&nbsp;
+            <span ng-bind="docStr"></span>
+        </div>
+        <br/>
+    </form>
+     <br/>
+            <ai> Does the network condition meet the requirements?
+            </ai>   
+     <div ng-include="'/app/partials/buttons.html'"></div>
+</div>

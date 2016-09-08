@@ -1,0 +1,22 @@
+<div class="container">
+    <h3> {{ title }} </h3>
+    <p>
+        <ai>
+            Is NAT (network address translation) required between network segments?
+        </ai>
+    </p>
+    <input type="radio" ng-model="response" value="no" data-ng-click="stepCompleted('NAT not required', 'no')"> No
+    <br />
+    <input type="radio" ng-model="response" value="yes"> Yes
+    <br />
+    <br />
+    <div ng-show="response == 'yes'" class="ng-hide">
+        <p>
+            Network address translation limits the visibility of resources between different network segments. If you don't take this into consideration, this issue can affect the monitoring infrastructure when configuring the ability for agents and the Tivoli Enterprise Portal to connect to the hub monitoring server.<br/>
+            <br/>
+            <ai>Are you aware of the limitations that NAT brings?
+            </ai>
+        </p>
+        <div ng-include="'/app/partials/buttons.html'"></div>
+    </div>
+</div>

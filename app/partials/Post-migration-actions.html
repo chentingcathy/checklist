@@ -1,0 +1,24 @@
+<div class="container" data-ng-controller="migrationComplete">
+    <h3> {{ title }} </h3>
+    <p>
+        <ai>
+            <em>Congratulations</em>, you have successfully migrated to {{ migrationTarget }}.
+            <br/>
+            <br/>Were all your pre-V5 programs recompiled with latest COBOL compiler?
+        </ai>
+    </p>
+    <input type="radio" ng-model="response" value="no"> No
+    <br/>
+    <input type="radio" ng-model="response" value="yes"> Yes
+    <br/>
+    <br/>
+    <div ng-show="response == 'yes'" class="ng-hide">
+        Uninstall the old COBOL compiler.
+    </div>
+    <div ng-show="response == 'no'" class="ng-hide">
+        Note, if you deactivate/uninstall the old COBOL compiler without having recompiled all of your pre-V5 programs, any future changes will involve a compiler migration.
+    </div>
+    <div ng-show="response != null" class="ng-hide">
+        <div ng-include="'/app/partials/buttons.html'"></div>
+    </div>
+</div>

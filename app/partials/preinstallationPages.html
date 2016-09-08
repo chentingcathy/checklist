@@ -1,0 +1,29 @@
+<div class="fluid-container" data-ng-controller="migrationController">
+    <!--div class="span4 section"-->
+    <!--创建一个带有黑色背景白色文本的倒置的导航栏-->
+   <nav class="col-xs-12 col-sm-3 navbar navbar-inverse" role="navigation">
+       <div class="sidebar-nav">
+           <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#migrationNavBar" aria-expanded="false" aria-controls="navbar">
+                   <span class="sr-only">Pre-installation Steps</span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+               </button>
+           </div>
+           <div id="migrationNavBar" class="navbar-collapse collapse">
+               <ul class="nav nav-pills nav-stacked">
+                   <li class=" {{step.state}} btn-block " data-ng-repeat="step in steps">
+                       <a href="/migration/{{step.slug}}">
+                           <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green" ng-show='{{ step.completion }}' class="ng-show"></span> {{step.step}}. {{ step.title }} </a>
+                   </li>
+               </ul>
+           </div>
+       </div>
+   </nav>
+   <div class="col-xs-12 col-sm-9 ">
+       <div class="page-content ">
+           <ng-include src="templateUrl "></ng-include>
+       </div>
+   </div>
+</div>

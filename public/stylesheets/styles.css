@@ -1,0 +1,93 @@
+/*
+color chart:
+
+navbar and btn backgroud color : 152934
+navbar active color: 28536a;
+*/
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+    /* Margin bottom by footer height */
+    /*    margin-bottom: 10%;*/
+    height: 100%;
+    overflow: auto;
+}
+.footer {
+    padding: 10px 10px;
+    max-height: 10%;
+}
+.navbar-inverse {
+    background: #152934;
+}
+.navbar-inverse .navbar-nav > .active >a,
+.navbar-inverse .navbar-nav > .active >a:hover,
+.navbar-inverse .navbar-nav > .active >a:focus {
+    color: #fff;
+    background: #28536a;
+}
+.navbar-inverse .navbar-nav > .open >a,
+.navbar-inverse .navbar-nav > .open >a:hover,
+.navbar-inverse .navbar-nav > .open >a:focus {
+    color: #fff;
+    background: #28536a;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a,
+.navbar-inverse .navbar-nav .open .dropdown-menu {
+    background: #152934;
+    color: #eeeeee;
+}
+.container {
+    width: 99%;
+    margin-left: 10px;
+}
+.sidebar-nav {
+    max-height: 800px;
+    background-color: #152934;
+    text-align: left;
+    overflow: auto;
+}
+.row-content {
+    margin: 0px auto;
+    padding: 20px 0 10px 0;
+    /* height: 900px;*/
+    /* overflow-y: auto;*/
+}
+.page-content {
+    margin: 0px auto;
+    padding: 20px;
+    /*    height: 900px;*/
+    overflow-y: auto;
+}
+.jumbotron {
+    margin: 0px auto;
+    background: #24485c;
+    color: #fff;
+}
+.footer {
+    margin: 0px auto;
+}
+.btn {
+    margin-top: 20px;
+    background: #152934;
+}
+
+/* user action item request */
+
+ai {
+    margin: 0 0 10px;
+    font-style: normal;
+    font-size: 16px;
+}
+em {
+    /* or .call em, but you should aim for consistency in your styling */
+    font-style: normal;
+    font-size: 18px;
+    /*    text-transform: uppercase;*/
+}

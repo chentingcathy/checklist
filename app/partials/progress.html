@@ -1,0 +1,26 @@
+<div class="row row-content" data-ng-controller="migrationComplete">
+    <div class="col-xs-12 col-md-2"></div>
+    <div class="col-xs-12 col-md-8">
+        <div class="table-reponsive">
+            <table class="table table-striped">
+                <tr>
+                    <th>Step number</th>
+                    <th>Step description</th>
+                    <!--                    <th>Response</th>-->
+                    <th>Status</th>
+                </tr>
+                <tr data-ng-repeat="step in steps">
+                    <td> {{ step.step }} </td>
+                    <td> <a href="/#/migration/{{step.slug}}"> {{ step.title }} </a></td>
+                    <!--                    <td> {{ migrationStatus(step.response) }} </td>-->
+                    <td> {{ migrationStatus(step.status) }} </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-2">
+        <button class="btn btn-primary mybtn" data-ng-click="printDiv('migrationAssistantPage');">
+            <span class="glyphicon glyphicon-print"></span>
+        </button>
+    </div>
+</div>

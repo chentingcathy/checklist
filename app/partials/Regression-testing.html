@@ -1,0 +1,111 @@
+<div class="container" data-ng-controller="migrationTargetController">
+    <h3> {{ title }} </h3>
+    <div>
+        <p>
+            You can get different results with {{migrationTarget}} compared to previous compilers if your programs have
+            <b>'invalid COBOL data'</b>, where data values do not conform to the rules in the Enterprise COBOL Language Reference manual.
+            <br/>
+            <br/> To determine if your programs process invalid COBOL data at runtime, compile your programs with SSRANGE and ZONECHECK compiler options and run regression tests.
+            <br/>
+            <br/>
+            <ai>Does your programs show SSRANGE/ZONECHECK errors?</ai>
+        </p>
+
+        <input type="radio" ng-model="response['invalidDataCk']" value="no"> No
+        <br />
+        <input type="radio" ng-model="response['invalidDataCk']" value="yes"> Yes
+        <br/>
+        <br/>
+
+        <div ng-show="response['invalidDataCk'] == 'yes'" class="ng-hide">
+            <p>
+                <ai>
+                    Types of invalid data:
+                </ai>
+            </p>
+
+            <ol>
+                <li>SSRANGE errors: programs are either :
+                    <ul>
+                        <li>
+                            subscripting beyond the end of a table
+                        </li>
+                        <li>
+                            referencing data beyond a COBOL group with reference modification
+                        </li>
+                        <li>
+                            using an OCCURS DEPENDING ON (ODO) table with the ODO object not in the valid range
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    ZONECHECK errors: programs have invalid data in numeric USAGE DISPLAY (zoned decimal) data items at runtime
+                </li>
+            </ol>
+            <p>
+                <ai>Action required for invalid data:</ai>
+            </p>
+            <ol>
+                <li>
+                    Invalid data for subscripts or OCCURS DEPENDING ON (SSRANGE errors):
+                </li>
+                <ul>
+                    <li>
+                        Change programs to not subscript beyond the end of a table
+                    </li>
+                    <li>
+                        Change programs to not reference data beyond a COBOL group with reference modification
+                    </li>
+                    <li>
+                        Change programs to always have the ODO object in the valid range for ODO tables
+                    </li>
+                </ul>
+                <li>
+                    Invalid numeric DISPLAY data items (ZONECHECK errors):
+                    <ul>
+                        <li>
+                            Correct the data sources or programs to only use valid data
+                        </li>
+                        <li>
+                            Tolerate the invalid data in numeric DISPLAY data items by using the compiler option ZONEDATA
+
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+            <p>
+                <ai><b>
+                Update ALL source programs and/or data untill there are no more SSRANGE or ZONECHECK errors.
+                    </b></ai>
+            </p>
+        </div>
+        <div ng-show="response['invalidDataCk']" class="ng-hide">
+            <p>
+                <ai>
+                    Compile your programs with {{migrationTarget}} using NOSSRANGE and NOZONECHECK and run your regression tests alongside the same application in its current form (that is, compiled with Enterprise COBOL V4 or earlier compilers).
+                </ai>
+                <br/>
+                <br/>
+                <ai>
+                    Do you see different results with IBM Enterprise COBOL for z/OS, V6.1 compared to the previously used compiler?
+                </ai>
+            </p>
+            <input type="radio" ng-model="response['test']" value="no"> No
+            <br />
+            <input type="radio" ng-model="response['test']" value="yes" data-ng-click="defectFound(response)"> Yes
+            <br />
+            <br />
+            <!--            <div ng-show="response['test'] == 'yes'" class="ng-hide">-->
+            <!--            </div>-->
+            <div ng-show="response['test'] == 'no'" class="ng-hide">
+                <p>
+                    <ai>
+                        Move the application into production.
+                    </ai>
+                </p>
+                <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Completed', response)">DONE</button>
+                <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Not Needed', response)"> Not needed </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+    <h3> {{ title }} </h3>
+    <p>
+        <ai>
+           Assign TCP/IP ports. The default is IP.PIPE, port 1918 for the monitoring server. See <a href=" {{  doclinks['portassign'] }}" target="_blank"> Port number assignments </a>.
+        </ai>
+   
+    <br/>
+    <ai>
+    Are you configuring a high availability z/OS hub monitoring server?
+    </ai>
+     </p>
+     <input type="radio" ng-model="response" value="no" data-ng-click="stepCompleted('No HAB', 'no')"> No
+    <br />
+    <input type="radio" ng-model="response" value="yes"> Yes
+    <br />
+    <br />
+    <div ng-show="response == 'yes'" class="ng-hide">
+        <p>
+            Configure DVIPA. Dynamic Virtual IP Address (DVIPA) resources must be defined for the high availability (HA) z/OS hub monitoring server and any monitoring servers which are candidates to take over as the hub.             <br/>
+            <ai>Do TCP/IP ports properly allocated?
+            </ai>
+        </p>
+        <div ng-include="'/app/partials/buttons.html'"></div>
+    </div>
+</div>

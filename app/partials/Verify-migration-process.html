@@ -1,0 +1,17 @@
+<div class="container">
+    <h3> {{ title }} </h3>
+    <p>
+        <ai>
+            Are there additional problems you are encountering that were not resolved?
+        </ai>
+    </p>
+    <input type="radio" ng-model="response" value="no" data-ng-click="stepCompleted('Migration successful','no')"> No
+    <br />
+    <input type="radio" ng-model="response" value="yes"> Yes
+    <br />
+    <br />
+    <div ng-show="response == 'yes'" class="ng-hide">
+        For further assistance, visit the
+        <a href=" {{ doclinks['cobolCafe'] }}" target="_blank" ng-click="stepCompleted('Additonal problems found','yes')">IBM COBOL Cafe</a>.
+    </div>
+</div>

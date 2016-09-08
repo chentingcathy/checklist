@@ -1,0 +1,30 @@
+<div class="container">
+    <h3> {{ title }} </h3>
+    <p>
+        Earlier COBOL programs can run under several different runtime libraries, including Language Environment (LE). If any of your programs are still using old runtime library routines, you need to migrate them.
+        <br/>
+    </p>
+    <form name="langEnvMigration" data-ng-controller="languageMigrationController">
+        <p>
+            <b><ai>Select ALL actions that have been performed:
+                </ai></b>
+        </p>
+        <div data-ng-repeat="(key, docStr) in checkList">
+            <input type="checkbox" ng-model="response[key]">&nbsp;
+            <span ng-bind="docStr"></span>
+        </div>
+        <br/>
+        <ai><b>For CICS programs, when introducing Enterprise COBOL V5 or V6 programs into an application, take the following actions:</b></ai>
+        <ul>
+            <li>
+                For statically CALLed CICS programs, relink with IGZEBST from LE with the PTFs for <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1PI33330">APAR PI33330</a> installed.
+            </li>
+            <li>
+                For dynamically CALLed CICS programs, install the PTFs for <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1PI25079">APAR PI25079</a> into SCEERUN.
+            </li>
+        </ul>
+        <br />
+        <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Completed', response)">DONE</button>
+        <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Not Needed', response)"> Not needed </button>
+    </form>
+</div>

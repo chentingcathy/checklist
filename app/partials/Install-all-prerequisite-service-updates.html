@@ -1,0 +1,41 @@
+<div class="container" data-ng-controller="migrationTargetController">
+    <h3> {{ title }} </h3>
+    <p>
+        Service updates are required for other products to compile programs with Enterprise COBOL V5/V6 and also to bind, run and debug those programs. Now, with Enterprise COBOL V5/V6, you can use the FIXCAT feature of SMP/E to find the required services.
+        <br/>
+        <br/> Verify all
+        <a href=" {{ doclinks['ptf'] }} " target="_blank">
+        prerequisite service updates (program temporary fixes (PTFs))  
+        </a> for {{migrationTarget}} are installed.
+
+        <br/>
+        <br/>
+        <ai>Have you installed all the PTFs?</ai>
+        <br/>
+    </p>
+    <input type="radio" ng-model="response" value="yes" data-ng-click="stepCompleted('Completed','yes')"> Yes
+    <br />
+    <input type="radio" ng-model="response" value="no"> No
+    <br />
+    <br />
+    <div ng-show="response == 'no'" class="ng-hide">
+        Install the prerequisite PTFs for all non-COBOL products with pre-req COBOL PTFs on all systems where {{migrationTarget}} programs might run, including production systems.
+        <br/>
+        <br/> Enterprise COBOL V5 and later might require service updates (PTFs) for:
+        <ul>
+            <li>CICS</li>
+            <li>DB2</li>
+            <li>Debug Tool</li>
+            <li>Fault Analyzer</li>
+            <li>z/OS</li>
+        </ul>
+        <div>
+            <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Completed','yes')">
+                Done
+            </button>
+            <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Not Needed','no')" disabled>
+                Not needed
+            </button>
+        </div>
+    </div>
+</div>

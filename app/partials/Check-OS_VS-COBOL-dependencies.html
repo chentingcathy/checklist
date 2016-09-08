@@ -1,0 +1,34 @@
+<div class="container">
+    <h3> {{ title }} </h3>
+
+    <p>
+        Use the Load Module Analyzer (LMA) tool included with IBM Debug Tool (or equivalent) to analyze whether your load libraries contain any OS/VS COBOL programs.
+        <br />
+        <br />
+        <ai>Do any of your load libraries contain OS/VS COBOL programs?</ai>
+    </p>
+
+    <input type="radio" ng-model="response" value="no" data-ng-click="stepCompleted('No OS/VS COBOL programs found','no')"> No
+    <br />
+    <input type="radio" ng-model="response" value="yes"> Yes
+    <br />
+    <br />
+    <div ng-show="response == 'yes'" class="ng-hide">
+        <p>
+            These OS/VS COBOL programs need special handling because they cannot CALL or be CALLed by Enterprise COBOL V5 or V6 programs. There are 3 options for handling these programs.
+            <br/>
+            <br/>
+            <ai>Select the option you have chosen to perform:</ai>
+        </p>
+        <input type="radio" ng-model="fixdependency" value="keep_separate"> Keep the OS/VS COBOL programs separate.
+        <br/>
+        <input type="radio" ng-model="fixdependency" value="early_migration"> Target the OS/VS COBOL programs for early migration to Enterprise COBOL V5/V6.
+        <br/>
+        <input type="radio" ng-model="fixdependency" value="migrate_to_V4"> Migrate the OS/VS COBOL programs to Enterprise COBOL V4 before Enterprise COBOL V5/V6 migration.
+        <br/>
+        <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Completed', response)">Done
+        </button>
+        <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Not Needed', response)"> Not needed </button>
+    </div>
+    <br />
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+    <h3> {{ title }} </h3>
+    <p>
+     <ai>
+       The Tivoli Enterprise Monitoring Server and the OMEGAMON enhanced 3270 user interface have special TCP/IP requirements. 
+        </ai>
+       <br/>
+    </p>
+   <ai><b>Ensure that you've meet the following requirements:</b></ai>
+        <ul>
+            <li>
+                Providing default OMVS segment.
+                 <p>To use the TCP/IP communication protocols, a Tivoli Enterprise Monitoring Server on a z/OS® system requires a default OMVS segment. See the z/OS Communications Server IP Configuration Guide for an explanation of how to provide an OMVS segment. The OMVS segment is also required for the Tivoli OMEGAMON enhanced 3270 user interface.
+                  </p>
+            </li>
+            <li>
+                Creating a UID for the enhanced 3270 user interface started task.
+            </li>
+             <li>
+            	Specifying TCP/IP stack name
+           	</li>
+        </ul>
+      
+     <br/>
+            <ai> Have you meet all the requirements?
+            </ai>   
+     <div ng-include="'/app/partials/buttons.html'"></div>
+</div>

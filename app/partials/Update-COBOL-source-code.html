@@ -1,0 +1,52 @@
+<div class="container">
+    <h3> {{ title }} </h3>
+    <p>
+        <ai>
+            Are ALL your programs compiled with Enterprise COBOL V3R4 or later?
+        </ai>
+    </p>
+    <input type="radio" ng-model="response" value="no"> No
+    <br />
+    <input type="radio" ng-model="response" value="yes" data-ng-click="stepCompleted('All compiled with COBOL V3R4 and later','yes')"> Yes
+    <br />
+    <br />
+    <div ng-show="response == 'no'" class="ng-hide">
+        Depending on which COBOL compiler you are migrating from, you might need to make source code changes.
+        <br/>
+        <br/> For information on how to make source code changes, select the COBOL compiler your program was compiled with:
+        <br/>
+        <ul>
+            <li>
+                <a href=" {{ doclinks['OSVSsrcUpgrade'] }}" target="_blank">OS/VS COBOL</a>
+            </li>
+            <li><a href=" {{ doclinks['VSIIsrcUpgrade'] }}" target="_blank">VS COBOL II</a>
+            </li>
+            <li><a href=" {{ doclinks['V370srcUpgrade'] }}" target="_blank">COBOL/370, Version 1 Release 1</a>
+            </li>
+            <li><a href=" {{ doclinks['V370srcUpgrade'] }}" target="_blank">COBOL for MVS™ & VM, Version 1 Release 2</a>
+            </li>
+            <li><a href=" {{ doclinks['V370srcUpgrade'] }}" target="_blank">COBOL for OS/390 & VM, Version 2 Release 1</a>
+            </li>
+            <li><a href=" {{ doclinks['V370srcUpgrade'] }}" target="_blank">COBOL for OS/390 & VM, Version 2 Release 2</a>
+            </li>
+            <li><a href=" {{ doclinks['enterpriseSrcUpgrade'] }}" target="_blank">Enterprise COBOL for z/OS® and OS/390®, Version 3 Release 1</a>
+            </li>
+            <li><a href=" {{ doclinks['enterpriseSrcUpgrade'] }}" target="_blank">Enterprise COBOL for z/OS and OS/390, Version 3 Release 2</a>
+            </li>
+            <li><a href=" {{ doclinks['enterpriseSrcUpgrade'] }}" target="_blank">Enterprise COBOL for z/OS, Version 3 Release 3</a>
+            </li>
+        </ul>
+        <br/>
+        <p>
+            <ai> Have all required source code changes been made?</ai>
+        </p>
+        <div>
+            <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Completed','no')">
+                Done
+            </button>
+            <button class="btn btn-primary mybtn" data-ng-click="stepCompleted('Not Needed','no')">
+                Not needed
+            </button>
+        </div>
+    </div>
+</div>

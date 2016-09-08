@@ -1,0 +1,4 @@
+# files to ignore for this project
+node_modules
+conf
+*.bak

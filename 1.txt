@@ -1,0 +1,13 @@
+set COBOL_MIGRATION_ASSISTANT_BLUEID={ "client_id": "N2E0NTQ2MGQtMGI5YS00", "client_secret": "NGU1N2QzMmQtNjU4NC00", "authorization_url": "https://prepiam.toronto.ca.ibm.com/idaas/oidc/endpoint/default/authorize", "token_url": "https://prepiam.toronto.ca.ibm.com/idaas/oidc/endpoint/default/token", "issuer_id": "https://prepiam.toronto.ca.ibm.com"} 
+
+
+
+
+set COBOL_MIGRATION_ASSISTANT_DB={"cloudantNoSQLDB":[{"name":"MigrationAssistantDB","label":"cloudantNoSQLDB","plan":"Shared","credentials":{"username":"31fa5056-9c29-44cf-b150-afa9baf22d28-bluemix","password":"dc249581afae09e4d2896e7a882b4718135ff6fc39daf0e124d4e5dc0e7c5133","host":"31fa5056-9c29-44cf-b150-afa9baf22d28-bluemix.cloudant.com","port":443,"url":"https://31fa5056-9c29-44cf-b150-afa9baf22d28-bluemix:dc249581afae09e4d2896e7a882b4718135ff6fc39daf0e124d4e5dc0e7c5133@31fa5056-9c29-44cf-b150-afa9baf22d28-bluemix.cloudant.com"}}]}
+
+
+set NODE_ENV='localhost'
+
+set PORT=6002
+
+node server.js

@@ -1,0 +1,26 @@
+<div class="container">
+    <h3> {{ title }} </h3>
+    <p>
+        <ai>Can the published address of the monitoring be reached from either side of the firewall??</ai>
+    </p>
+   <input type="radio" ng-model="response" value="yes" data-ng-click="stepCompleted('DONE', 'yes')"> YES
+    <br />
+    <input type="radio" ng-model="response" value="no"> NO
+    <br />
+    <br />
+    <div ng-show="response == 'no'" class="ng-hide">
+        <p>
+            Either ephemeral pipe support or broker partitioning is required. See <a href=" {{  doclinks['firewallsup'] }}" target="_blank">  Firewall support  </a>for more information.
+            <br/>
+            <br/>
+            <ai>Have you completed the firewall configuration?
+            </ai>
+        </p>
+        <div ng-include="'/app/partials/buttons.html'"></div>
+    </div>
+
+
+
+
+
+</div>
