@@ -1,0 +1,12 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+
+  domain: stage1.mybluemix.net
+  name: Omegamon Pre-installation Checklist
+  host: checklist
+  disk_quota: 1024M
+  command: node server.js
+  services:
+  - MigrationAssistantDB
